@@ -31,20 +31,28 @@ public class TimerThread implements Runnable{
 	{
 		this.input=input;
 		this.output=output;
-		this.size=size;
+		this.size=size; // total items in auction
 		array=new int[20];
 	}
 	@Override
 	public void run() {
 		Timer timer = new Timer();
-		size=size*60+size;
+		size=size*60+size; // total no of seconds auction should happen
 		data="01 : 01";
+		
+		System.out.println("Hello PA!! ");
+		
 		timer.schedule(new MyTimer(), 0, 1000);
 		cnt=1;
 		synchronized(ServerCollection2.items.keySet()) {
 		for(Integer n:ServerCollection2.items.keySet())
 		{
+			
+			
 			ID=n;
+			
+			System.out.println("Item No in auction: " + ID);
+			
 			item=ServerCollection2.items.get(n);
 			try 
 			{
@@ -87,17 +95,22 @@ public class TimerThread implements Runnable{
 	}
 	class MyTimer extends TimerTask {
 	    public void run() {
+	    	
+	    	System.out.println("Hello Timer " + i);
 	       
 	    	if(flag)
 	    		return;
+	    	
 	    	size--;
+	    	
+	    	// store := seconds
 	    	store=null;
 	    	letter=data.charAt(5);
 	    	store=String.valueOf(letter);
 	    	letter=data.charAt(6);
 	    	store=store+String.valueOf(letter);
 	    	i=Integer.parseInt(store);
-	    	i--;
+	    	i--; // decrement second
 	    	
 	    	store=null;
     		letter=data.charAt(0);
@@ -105,6 +118,7 @@ public class TimerThread implements Runnable{
 	    	letter=data.charAt(1);
 	    	store=store+String.valueOf(letter);
 	    	i2=Integer.parseInt(store);
+	    	// i2 - minutes
 	    	
 	    	if(size==0)
 	    	{
@@ -112,6 +126,8 @@ public class TimerThread implements Runnable{
 	    		this.cancel();
 	    		return;
 	    	}
+	    	
+	    	// Timer reset
 	    	if(i==-1)
 	    	{
 	    		
@@ -134,8 +150,10 @@ public class TimerThread implements Runnable{
 	    		else
 	    			data=i2+" : "+i;
 	    	}
+	    	
 	    	current.Time=data;
 	    	current.ID=ID;
+	    	
 	    	try 
 	    	{
 	    		Jdbc.InsertCurrentItem(current);

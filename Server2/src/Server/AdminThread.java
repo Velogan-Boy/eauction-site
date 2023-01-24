@@ -19,7 +19,7 @@ public class AdminThread implements Runnable,Serializable{
 	public AllCustomers customers;
 	public Vector<Item> ItemList;
 	public boolean result;
-	public SendCurrentItem current=new SendCurrentItem();
+	public SendCurrentItem current= new SendCurrentItem();
     public Iterator<Item> iterate;
     public Item item;
 	public AdminThread(ObjectInputStream input,ObjectOutputStream output) throws Exception
@@ -42,6 +42,7 @@ public class AdminThread implements Runnable,Serializable{
 			ItemList=Jdbc.LoadState();
 			output.writeObject(ItemList);
 			output.reset();
+			
 			while(true)
 			{
 				try 
@@ -83,6 +84,7 @@ public class AdminThread implements Runnable,Serializable{
 						}
 						else if(((String)obj).equals("Status"))
 						{
+							System.out.println(current);
 							current=Jdbc.CurrentItemStatus(current);
 							output.writeObject(current);
 							output.reset();

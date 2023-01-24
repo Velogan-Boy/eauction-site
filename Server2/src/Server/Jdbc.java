@@ -174,7 +174,8 @@ public class Jdbc {
 		{
 			current.ID=rset4.getInt("ID");
 			current.Time=rset4.getString("Time");
-		}}
+		}
+		}
 		return current;
 	}
 	public static int ItemSize() throws Exception

@@ -14,6 +14,7 @@ public class CheckThread implements Runnable,Serializable{
 	public ObjectInputStream input;
 	public ObjectOutputStream output;
 	public Object obj;
+	
 	public CheckThread(Socket s1)
 	{
 		this.s=s1;
@@ -21,10 +22,8 @@ public class CheckThread implements Runnable,Serializable{
 
 	public void run() 
 	{
-		
 		boolean n;
-		try
-		{
+		try{
 			input = new ObjectInputStream(s.getInputStream());
 			output=new ObjectOutputStream(s.getOutputStream());
 			while(true) 
@@ -89,11 +88,11 @@ public class CheckThread implements Runnable,Serializable{
 				}
 				else
 					output.writeObject(Timer.checktime());
-				output.reset();
-			}
-		  }
-		} catch (Exception e) 
-		{
+					output.reset();
+				}
+				}
+		} catch (Exception e) {
+			e.printStackTrace();
 			return;
 		}
   }

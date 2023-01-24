@@ -15,3 +15,6 @@ create table Item(ID int primary key auto_increment,Name varchar(30),Owner_Name 
 create table SoldItem(ID int,Name varchar(30),Owner_Name varchar(30),Reserve_Price int,Image blob,Hammer_Price int,Consumer_ID int,Consumer_Name varchar(30));
 
 create table Status(Auction varchar(20),ID int,Time varchar(10));
+
+
+insert into Status values (null,0,null);

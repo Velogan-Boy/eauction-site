@@ -101,9 +101,8 @@ public class TimerThread implements Runnable,Comparator<PriorityBid>{
 					
 					v=(Vector<SendBidStatus>) input.readObject();
 					
-					System.out.println(current.ID + " " + current.Time);
-					
-					if(current.ID==1)
+										
+					if(current.ID==0)
 					{
 						flag=true;
 						parent.setVisible(false);
@@ -148,11 +147,10 @@ public class TimerThread implements Runnable,Comparator<PriorityBid>{
 				for(Integer n:ServerCollection.items.keySet())
 				{
 					
-					System.out.println(n + " " + current.ID);
-				
+					
 					if(n==current.ID)
 					{
-						System.out.println("Hello1");
+				
 						icon=ServerCollection.Images.get(n);
 						item=ServerCollection.items.get(n);
 						parent.lblName.setIcon(icon);
