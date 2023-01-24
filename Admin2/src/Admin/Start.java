@@ -39,7 +39,7 @@ public class Start extends JPanel{
 		
 		this.input=input;
 		this.output=output;
-		
+	
 		setLayout(null);
 		setBounds(0,0,980,564);
 		
@@ -51,6 +51,7 @@ public class Start extends JPanel{
 	                return false;               
 	        };
 	    };
+	    	    
 		model.addColumn("Bidder Name");
         model.addColumn("Bid Price ");
         table.getTableHeader().setFont(new Font("SansSerif", Font.BOLD, 15));
@@ -59,8 +60,7 @@ public class Start extends JPanel{
         j1=new JScrollPane(table);
         j1.setBounds(225,341,513,161);
 		add(j1);
-		
-		
+				
 		lblFillTheFollowing = new JLabel("Item for Auction");
 		lblFillTheFollowing.setBounds(388, 23, 225, 30);
 		lblFillTheFollowing.setForeground(Color.BLUE);
@@ -124,10 +124,12 @@ public class Start extends JPanel{
 	}
 	public void StartTheAuction(Sell sell,AuctionRunning parent,StartAuction startAuction) throws Exception
 	{
+		
 		output.writeObject("AuctionStarted");
 		output.reset();
-		
+				
 		TimerThread t=new TimerThread(input,output,this,sell,parent,startAuction);
+	
 		Thread t2=new Thread(t);
 		t2.start();
 	}

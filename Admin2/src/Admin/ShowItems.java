@@ -128,10 +128,11 @@ public class ShowItems extends JPanel {
 		{
 			item=i.next();
 			Barray=item.b;
-			File file=new File("/home/ashish/eclipse-workspace/Admin2/AdminImages/"+String.valueOf(item.ID)+".txt");
+						
+			File file=new File("./AdminImages/"+String.valueOf(item.ID)+".txt");
 			fos=new FileOutputStream(file);
 			fos.write(Barray);
-			image=new ImageIcon("/home/ashish/eclipse-workspace/Admin2/AdminImages/"+String.valueOf(item.ID)+".txt");
+			image=new ImageIcon("./AdminImages/"+String.valueOf(item.ID)+".txt");
 			label2=new JLabel(image);
 			ServerCollection.items.put(item.ID,item);
 			ServerCollection.Images.put(item.ID,image);
@@ -152,7 +153,8 @@ public class ShowItems extends JPanel {
 	}
 	public void refresh() throws Exception
 	{
-		int rows = model.getRowCount(); 
+		int rows = model.getRowCount();
+		//System.out.println(rows);
 		for(int i = rows - 1; i >=0; i--)
 		{
 		   model.removeRow(i); 
@@ -164,10 +166,10 @@ public class ShowItems extends JPanel {
 		{
 			item=i.next();
 			Barray=item.b;
-			File file=new File("/home/ashish/eclipse-workspace/Admin2/AdminImages/"+String.valueOf(item.ID)+".txt");
+			File file=new File("./AdminImages/"+String.valueOf(item.ID)+".txt");
 			fos=new FileOutputStream(file);
 			fos.write(Barray);
-			image=new ImageIcon("/home/ashish/eclipse-workspace/Admin2/AdminImages/"+String.valueOf(item.ID)+".txt");
+			image=new ImageIcon("./AdminImages/"+String.valueOf(item.ID)+".txt");
 			label2=new JLabel(image);
 			ServerCollection.items.put(item.ID,item);
 			ServerCollection.Images.put(item.ID,image);

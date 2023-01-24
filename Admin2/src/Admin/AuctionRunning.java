@@ -16,6 +16,7 @@ public class AuctionRunning extends JPanel {
 	 */
 	public AuctionRunning() {
 		
+			
 		setLayout(null);
 		setBounds(0,0,980,564);
 		

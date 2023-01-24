@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.PriorityQueue;
 import java.util.Timer;
@@ -70,14 +71,14 @@ public class TimerThread implements Runnable,Comparator<PriorityBid>{
 			{
 				item=i.next();
 				Barray=item.b;
-				File file=new File("/home/ashish/eclipse-workspace/Admin2/AdminImages/"+String.valueOf(item.ID)+".txt");
+				File file=new File("./AdminImages/"+String.valueOf(item.ID)+".txt");
 				fos=new FileOutputStream(file);
 				fos.write(Barray);
-				image=new ImageIcon("/home/ashish/eclipse-workspace/Admin2/AdminImages/"+String.valueOf(item.ID)+".txt");
+				image=new ImageIcon("./AdminImages/"+String.valueOf(item.ID)+".txt");
 				ServerCollection.items.put(item.ID,item);
 				ServerCollection.Images.put(item.ID,image);
 			}
-			timer.schedule(new GetStatus(), 0, 1000);
+			timer.schedule(new GetStatus(), new Date(), 1000);
 			}
 		} catch (Exception e) 
 		{
@@ -97,8 +98,12 @@ public class TimerThread implements Runnable,Comparator<PriorityBid>{
 	    			output.writeObject("Status");
 					output.reset();
 					current=(SendCurrentItem)input.readObject();
+					
 					v=(Vector<SendBidStatus>) input.readObject();
-					if(current.ID==0)
+					
+					System.out.println(current.ID + " " + current.Time);
+					
+					if(current.ID==1)
 					{
 						flag=true;
 						parent.setVisible(false);
@@ -128,10 +133,10 @@ public class TimerThread implements Runnable,Comparator<PriorityBid>{
 						{
 							item=it.next();
 							Barray=item.b;
-							File file=new File("/home/ashish/eclipse-workspace/Admin2/AdminImages/"+String.valueOf(item.ID)+".txt");
+							File file=new File("./AdminImages/"+String.valueOf(item.ID)+".txt");
 							fos=new FileOutputStream(file);
 							fos.write(Barray);
-							image=new ImageIcon("/home/ashish/eclipse-workspace/Admin2/AdminImages/"+String.valueOf(item.ID)+".txt");
+							image=new ImageIcon("./AdminImages/"+String.valueOf(item.ID)+".txt");
 							ServerCollection.items.put(item.ID,item);
 							ServerCollection.Images.put(item.ID,image);
 						}
@@ -139,10 +144,15 @@ public class TimerThread implements Runnable,Comparator<PriorityBid>{
 						return;
 					}
 				}
+	    		
 				for(Integer n:ServerCollection.items.keySet())
 				{
+					
+					System.out.println(n + " " + current.ID);
+				
 					if(n==current.ID)
 					{
+						System.out.println("Hello1");
 						icon=ServerCollection.Images.get(n);
 						item=ServerCollection.items.get(n);
 						parent.lblName.setIcon(icon);

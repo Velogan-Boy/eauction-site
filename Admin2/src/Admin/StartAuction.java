@@ -48,10 +48,12 @@ public class StartAuction extends JPanel {
 		btnStartAuction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+			
 				if(!ServerCollection.ItemList.isEmpty())
 				{
 					btnStartAuction.setVisible(false);
 					start.setVisible(true);
+					
 					try 
 					{
 						start.StartTheAuction(sell,auctionrunning,thisframe);
@@ -59,6 +61,7 @@ public class StartAuction extends JPanel {
 						sell.lblcost.setVisible(false);
 						sell.lblFillTheFollowing.setVisible(false);
 						sell.lblHeight.setVisible(false);
+						auctionrunning.setVisible(true);
 						sell.lblImage.setVisible(false);
 						sell.lblName.setVisible(false);
 						sell.lblOwnerName.setVisible(false);
