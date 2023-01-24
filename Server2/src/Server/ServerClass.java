@@ -49,8 +49,8 @@ public class ServerClass extends JFrame{
 	public static void main(String[] args) throws Exception
 	{
 		ServerClass server=new ServerClass();
-		server.setVisible(true);
 		Jdbc.createConnection();
+		server.setVisible(true);
 		server.Perform();
 	}
 }

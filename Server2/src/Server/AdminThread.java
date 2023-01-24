@@ -14,7 +14,8 @@ public class AdminThread implements Runnable,Serializable{
 
 	private static final long serialVersionUID = 1L;
 	public ObjectInputStream input;
-	public ObjectOutputStream output;int n;
+	public ObjectOutputStream output;
+	int n;
 	public AllCustomers customers;
 	public Vector<Item> ItemList;
 	public boolean result;

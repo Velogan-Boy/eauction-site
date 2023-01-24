@@ -26,6 +26,7 @@ public class Jdbc {
 	public static Vector<String> College_list=new Vector<String>(15);
 	public static Iterator<String> I1;
 	public static byte Barray[];
+	@SuppressWarnings("deprecation")
 	public static void createConnection() throws Exception
 	{
 		String url = "jdbc:mysql://localhost:3306/eauction";
