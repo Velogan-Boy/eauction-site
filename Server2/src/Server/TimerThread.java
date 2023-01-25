@@ -40,8 +40,7 @@ public class TimerThread implements Runnable{
 		size=size*60+size; // total no of seconds auction should happen
 		data="01 : 01";
 		
-		System.out.println("Hello PA!! ");
-		
+				
 		timer.schedule(new MyTimer(), 0, 1000);
 		cnt=1;
 		synchronized(ServerCollection2.items.keySet()) {

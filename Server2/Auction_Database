@@ -3,8 +3,8 @@ create database eauction;
 use eauction;
 
 create table Admin(Name varchar(20),Nickname varchar(20),Password varchar(20));
-insert into Admin values('Velmurugan','velan','velan');
-insert into Admin values('Pragadeesh','prags',prags');
+insert into Admin values('velan','velan','velan');
+insert into Admin values('Pragadeesh','prags','prags');
 
 create table Bid(ID int,Consumer_Name varchar(30),Bid_Price int,Constomer_ID int);
 
@@ -17,4 +17,4 @@ create table SoldItem(ID int,Name varchar(30),Owner_Name varchar(30),Reserve_Pri
 create table Status(Auction varchar(20),ID int,Time varchar(10));
 
 
-insert into Status values (null,0,null);
+insert into Status values(null,0,null);

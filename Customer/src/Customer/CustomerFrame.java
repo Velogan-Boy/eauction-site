@@ -61,7 +61,7 @@ public class CustomerFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds(0, 0, screenSize.width, screenSize.height);
-		icon=new ImageIcon("/home/ashish/eclipse-workspace/ProjectImages2/index.png");
+		icon=new ImageIcon("../ProjectImages2/index.png");
 		setIconImage(icon.getImage());
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
